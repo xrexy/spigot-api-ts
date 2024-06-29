@@ -1,3 +1,7 @@
-import { SpigotAPI } from "spigot-api-ts";
+import { getResourcesByCategory } from "spigot-api-ts";
 
-const a = new SpigotAPI();
+console.log("test");
+
+getResourcesByCategory({
+  categoryId: "23",
+}).then(console.log);

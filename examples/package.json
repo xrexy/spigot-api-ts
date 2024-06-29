@@ -3,5 +3,8 @@
   "private": true,
   "dependencies": {
     "spigot-api-ts": "0.0.1"
+  },
+  "scripts": {
+    "dev": "node --env-file=.env --watch -r ts-node/register index.ts"
   }
 }

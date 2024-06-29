@@ -8,8 +8,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc",
-    "dev": "node --env-file=.env --watch -r ts-node/register src/index.ts"
+    "build": "tsc"
   },
   "author": "xrexy",
   "license": "ISC",

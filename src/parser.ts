@@ -1,4 +1,4 @@
-import { SpigotResource } from "./types";
+import { SpigotAuthor, SpigotResource } from "./types";
 
 export function parseSpigotResource(json: any): SpigotResource {
   return {
@@ -17,5 +17,15 @@ export function parseSpigotResource(json: any): SpigotResource {
     externalDownloadUrl: json.external_download_url || null,
     description: json.description,
     icon: json.icon_link,
+  };
+}
+
+export function parseSpigotAuthor(json: any): SpigotAuthor {
+  return {
+    id: json.id,
+    username: json.username,
+    resourceCount: json.resource_count,
+    identities: json.identities,
+    avatar: json.avatar,
   };
 }
