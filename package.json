@@ -1,0 +1,24 @@
+{
+  "name": "spigot-api-ts",
+  "version": "0.0.1",
+  "description": "A simple TypeScript wrapper around the spigot rest api",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "node --env-file=.env --watch -r ts-node/register src/index.ts"
+  },
+  "author": "xrexy",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.2"
+  },
+  "engines": {
+    "node": ">=20.6.0"
+  }
+}

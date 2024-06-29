@@ -1,0 +1,7 @@
+{
+  "name": "spigot-api-ts-examples",
+  "private": true,
+  "dependencies": {
+    "spigot-api-ts": "0.0.1"
+  }
+}
