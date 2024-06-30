@@ -11,18 +11,18 @@ const api = new SpigotAPI();
 
 const authorResponse = await api.author.find("xrexy");
 if (authorResponse.status === "error") {
-  console.log(authorResponse.message, authorResponse.code);
+  console.log(authorResponse.error, authorResponse.code);
   console.log(authorResponse.exception);
   return;
 }
 
 const author = authorResponse.value;
-if (value === null) {
+if (author === null) {
   console.log("Author not found");
   return;
 }
 
-const resourcesResponse = await api.resource.byAuthor(author.id);
+const resourcesResponse = await api.resource.byAuthor(author.id.toString());
 if (resourcesResponse.status === "success") {
   console.log(
     `Found ${resourcesResponse.value.length} resources by ${author.username}`
