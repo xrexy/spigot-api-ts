@@ -17,9 +17,8 @@
   },
   "exclude": [
     "node_modules",
-    "examples"
   ],
   "include": [
-    "src"
+    "dist", "src"
   ]
 }

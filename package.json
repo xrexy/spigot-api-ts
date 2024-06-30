@@ -1,7 +1,7 @@
 {
-  "name": "spigot-api-ts",
+  "name": "spigotmc-api",
   "version": "0.0.1",
-  "description": "A simple TypeScript wrapper around the spigot rest api",
+  "description": "A simple TypeScript wrapper around the SpigotMC's XenforoResourceManagerAPI",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [

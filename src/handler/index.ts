@@ -11,14 +11,21 @@ export enum SpigotApiAction {
   FIND_AUTHOR = "findAuthor",
 }
 
-export function craftSpigotApiUrl(action: SpigotApiAction, params?: URLSearchParams) {
+export function craftSpigotApiUrl(
+  action: SpigotApiAction,
+  params?: URLSearchParams
+) {
   const url = new URL(`${SPIGOT_API_URL}?action=${action}`);
-
-  if (params) {
-    Object.entries(params).forEach(([key, value]) =>
-      url.searchParams.append(key, value)
-    );
-  }
+  params?.forEach((value, key) => url.searchParams.append(key, value));
 
   return url;
 }
+
+export { findAuthor, getAuthor } from "./author";
+export { listCategories } from "./category";
+export {
+  getResourceById,
+  getResourcesByAuthor,
+  getResourcesByCategory,
+} from "./resource";
+export { getAllResourceUpdates, getResourceUpdate } from "./update";

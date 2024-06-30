@@ -1,4 +1,4 @@
-import { Result } from "src/types";
+import { Result } from "../types";
 import { parsedSpigotError } from "./error";
 
 export async function delegatedHandler<Input = unknown, Output = any>(

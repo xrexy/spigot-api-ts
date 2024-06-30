@@ -1,15 +1,18 @@
 import { findAuthor, getAuthor } from "./handler/author";
 import { listCategories } from "./handler/category";
-import { getResourceById, getResourcesByCategory } from "./handler/resource";
+import {
+  getResourceById,
+  getResourcesByAuthor,
+  getResourcesByCategory,
+} from "./handler/resource";
 import { getAllResourceUpdates, getResourceUpdate } from "./handler/update";
-
-// TODO actual error handling
 
 export class SpigotAPI {
   public get resource() {
     return {
       byCategory: getResourcesByCategory.bind(this),
       byId: getResourceById.bind(this),
+      byAuthor: getResourcesByAuthor.bind(this),
     };
   }
 
@@ -34,8 +37,7 @@ export class SpigotAPI {
   }
 }
 
-export * from "./handler/index";
-export { getResourcesByCategory } from "./handler/resource";
+export * from "./handler";
 export * from "./types";
 
 export default SpigotAPI;

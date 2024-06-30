@@ -1,6 +1,6 @@
-import { SpigotResourceUpdate } from "src/types";
-import { delegatedHandler } from "src/utils/handler";
 import { SpigotApiAction, craftSpigotApiUrl } from ".";
+import { SpigotResourceUpdate } from "../types";
+import { delegatedHandler } from "../utils/handler";
 
 export async function getResourceUpdate(updateId: string) {
   const params = new URLSearchParams();

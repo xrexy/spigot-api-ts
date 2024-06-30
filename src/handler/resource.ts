@@ -1,17 +1,17 @@
-import { delegatedHandler } from "src/utils/handler";
 import { SpigotApiAction, craftSpigotApiUrl } from ".";
 import { parseSpigotResource } from "../parser";
 import { Result, SpigotResource } from "../types";
+import { delegatedHandler } from "../utils/handler";
 
 export async function getResourcesByCategory(
-  options: Partial<{
+  options?: Partial<{
     categoryId: string;
     page: number;
   }>
 ): Promise<Result<SpigotResource[]>> {
   const params = new URLSearchParams();
-  if (options.categoryId) params.append("category", options.categoryId);
-  if (options.page) params.append("page", options.page.toString());
+  if (options?.categoryId) params.append("category", options.categoryId);
+  if (options?.page) params.append("page", options.page.toString());
 
   const url = craftSpigotApiUrl(SpigotApiAction.LIST_RESOURCES, params);
 

@@ -1,6 +1,6 @@
-import type { SpigotCategory } from "src/types";
-import { delegatedHandler } from "src/utils/handler";
 import { SpigotApiAction, craftSpigotApiUrl } from ".";
+import type { SpigotCategory } from "../types";
+import { delegatedHandler } from "../utils/handler";
 
 export async function listCategories() {
   const url = craftSpigotApiUrl(SpigotApiAction.LIST_RESOURCE_CATEGORIES);

@@ -1,6 +1,6 @@
-import { parseSpigotAuthor } from "src/parser";
-import { delegatedHandler } from "src/utils/handler";
 import { SpigotApiAction, craftSpigotApiUrl } from ".";
+import { parseSpigotAuthor } from "../parser";
+import { delegatedHandler } from "../utils/handler";
 
 export async function getAuthor(id: string) {
   const params = new URLSearchParams();
