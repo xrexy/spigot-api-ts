@@ -1,3 +1,4 @@
+import { delegatedHandler } from "src/utils/handler";
 import { SpigotApiAction, craftSpigotApiUrl } from ".";
 import { parseSpigotResource } from "../parser";
 import { Result, SpigotResource } from "../types";
@@ -15,62 +16,25 @@ export async function getResourcesByCategory(
   const url = craftSpigotApiUrl(SpigotApiAction.LIST_RESOURCES, params);
 
   const response = await fetch(url.toString());
-  if (response.ok) {
-    try {
-      const json = await response.json();
-      return {
-        status: "success",
-        value: json.map(parseSpigotResource),
-      };
-    } catch (e) {
-      return {
-        status: "error",
-        error: "Failed to parse response",
-        exception: e,
-      };
-    }
-  }
-
-  return {
-    status: "error",
-    error: "Failed to fetch resources",
-  };
+  return delegatedHandler(response, (data: any[]) => ({
+    status: "success",
+    value: data.map(parseSpigotResource),
+  }));
 }
 
-export async function getResourceById(
-  id: string
-): Promise<Result<SpigotResource>> {
+export async function getResourceById(id: string) {
   const params = new URLSearchParams();
   params.append("id", id);
 
   const url = craftSpigotApiUrl(SpigotApiAction.GET_RESOURCE, params);
   const response = await fetch(url.toString());
-  if (response.ok) {
-    try {
-      const json = await response.json();
-      return {
-        status: "success",
-        value: parseSpigotResource(json),
-      };
-    } catch (e) {
-      return {
-        status: "error",
-        error: "Failed to parse response",
-        exception: e,
-      };
-    }
-  }
-
-  return {
-    status: "error",
-    error: "Failed to fetch resource",
-  };
+  return delegatedHandler(response, (data) => ({
+    status: "success",
+    value: parseSpigotResource(data),
+  }));
 }
 
-export async function getResourcesByAuthor(
-  id: string,
-  page?: number
-): Promise<Result<SpigotResource[]>> {
+export async function getResourcesByAuthor(id: string, page?: number) {
   const params = new URLSearchParams();
   params.append("id", id);
   if (page) params.append("page", page.toString());
@@ -78,24 +42,8 @@ export async function getResourcesByAuthor(
   const url = craftSpigotApiUrl(SpigotApiAction.GET_RESOURCE_BY_AUTHOR, params);
 
   const response = await fetch(url.toString());
-  if (response.ok) {
-    try {
-      const json = await response.json();
-      return {
-        status: "success",
-        value: json.map(parseSpigotResource),
-      };
-    } catch (e) {
-      return {
-        status: "error",
-        error: "Failed to parse response",
-        exception: e,
-      };
-    }
-  }
-
-  return {
-    status: "error",
-    error: "Failed to fetch resources",
-  };
+  return delegatedHandler(response, (data: any[]) => ({
+    status: "success",
+    value: data.map(parseSpigotResource),
+  }));
 }

@@ -1,27 +1,15 @@
-import type { Result, SpigotCategory } from "src/types";
+import type { SpigotCategory } from "src/types";
+import { delegatedHandler } from "src/utils/handler";
 import { SpigotApiAction, craftSpigotApiUrl } from ".";
 
-export async function listCategories(): Promise<Result<SpigotCategory[]>> {
+export async function listCategories() {
   const url = craftSpigotApiUrl(SpigotApiAction.LIST_RESOURCE_CATEGORIES);
 
   const response = await fetch(url.toString());
-  if (response.ok) {
-    try {
-      return {
-        status: "success",
-        value: await response.json(),
-      };
-    } catch (e) {
-      return {
-        status: "error",
-        error: "Failed to parse response",
-        exception: e,
-      };
-    }
-  }
-
-  return {
-    status: "error",
-    error: "Failed to fetch resources",
-  };
+  return delegatedHandler(response, (data: SpigotCategory[]) => {
+    return {
+      status: "success",
+      value: data,
+    };
+  });
 }

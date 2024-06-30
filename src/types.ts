@@ -36,7 +36,7 @@ export interface SpigotCategory {
 export interface SpigotAuthor {
   id: number;
   username: string;
-  resourceCount: string;
+  resourceCount: number;
   identities: Record<string, string>;
   avatar: string;
 }
@@ -57,4 +57,5 @@ export type Result<T> =
       status: "error";
       error: string;
       exception?: unknown;
+      code?: number;
     };
