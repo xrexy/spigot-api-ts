@@ -1,6 +1,13 @@
-# Spigot TS API
+# Spigot TS API <a href="https://www.npmjs.com/package/spigotmc-api" target="_blank">![](https://img.shields.io/npm/v/spigotmc-api?color=blue)</a> <a href="https://www.npmjs.com/package/spigotmc-api" target="_blank">![](https://img.shields.io/npm/dm/spigotmc-api?color=blue)</a>
 
 A simple wrapper around [XenforoResourceManagerAPI](https://github.com/SpigotMC/XenforoResourceManagerAPI)(An API that exposes some SpigotMC information)
+
+# Installation
+
+```bash
+# Use your own package manager
+npm install -S spigotmc-api
+```
 
 # Usage
 
